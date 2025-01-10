@@ -1,12 +1,12 @@
 ---
-const posts = await getCollection('posts')
+import { BASE_TITLE } from "astro:env/server";
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-
-console.log(posts)
+const posts = await getCollection('posts')
 ---
 
 <Layout>
+	<h1>{BASE_TITLE}</h1>
 	<ul>
 		{posts.map(({data}) => <li>{data.title}</li>)}
 	</ul>
